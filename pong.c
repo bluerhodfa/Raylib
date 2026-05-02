@@ -35,7 +35,7 @@ int main(void)
     Sound ping = LoadSound("resources/ping.mp3");
     // init ball speed
     ballSpeedX = GetRandomValue(5,-4);
-    ballSpeedY = GetRandomValue(4,-3);
+    ballSpeedY = GetRandomValue(6,-3);
 
 
     SetTargetFPS(60);
@@ -58,8 +58,11 @@ int main(void)
             DrawText(TextFormat("%i", player1Score), screenWidth / 4 - 20, 20, 80, WHITE);
             DrawText(TextFormat("%i", player2Score), 3 * screenWidth / 4, 20, 80, WHITE);
 
-            if (active == false) DrawText("Press SPACE BAR to start", 490 , 50, 25, WHITE);
-
+            if (active == false) {
+                DrawText("Press SPACE BAR to start", 490 , 50, 25, WHITE);
+                DrawText("Player 1 move with UP/DOWN keys, Player 2 move withi A/Z keys. ", 250 , 120, 25, WHITE);
+                DrawText("Press P to pause/Resart", 490 , 150, 25, WHITE);
+            }
             //player 1
             if (IsKeyDown(KEY_UP)) {
                 player2Rect.y -= 7;
