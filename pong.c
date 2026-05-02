@@ -21,7 +21,7 @@ int main(void)
     int ballRadius = 20;
     int ballSpeedX = 0; 
     int ballSpeedY = 0; 
-    int ballPositionX = GetScreenWidth() / 2;
+    int ballPositionX = GetScreenWidth() / 2 ;
     int ballPositionY = GetScreenHeight() / 2;
     
     int player1PositionY = 400;
