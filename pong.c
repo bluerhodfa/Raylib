@@ -13,7 +13,7 @@ bool pause = false;                 // Pause control flag
 
 int main(void)
 {
-    InitWindow(1280, 800, "raylib example - basic window");
+    InitWindow(1280, 800, "raylib retro gaming - pong");
 
     const int screenWidth = 1280;
     const int screenHeight = 800;
