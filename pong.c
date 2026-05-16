@@ -20,9 +20,9 @@ int main(void)
 {
     // setup game state
 
-    const int screenWidth = 1280;
-    const int screenHeight = 800;
-    const int playStartHeight = 50;
+    const int screenWidth = 1080;
+    const int screenHeight = 720;
+    const int playStartHeight = 80;
 
 
     int player1Score = 0;
@@ -178,15 +178,24 @@ int main(void)
             ClearBackground(DARK_BLUE);
 
             DrawRectangle(screenWidth / 2, 0, screenWidth / 2, screenHeight, LIGHT_BLUE);
-            DrawCircle(screenWidth / 2, screenHeight / 2, 150  / 2, BLUE);
+            DrawCircle(screenWidth / 2, screenHeight / 2, 300  / 2, BLUE);
             DrawLine(screenWidth / 2, 0, screenWidth / 2, screenHeight, WHITE);
 
-            DrawRectangleRec(playerLeftPaddle, WHITE);
-            DrawRectangleRec(playerRightPaddle, WHITE);
+            DrawRectangleRounded(playerLeftPaddle, 3.0f, 5, WHITE);
+            DrawRectangleRounded(playerRightPaddle, 3.0f, 5, WHITE);
             DrawCircleV(ballPosition, ballRadius, YELLOW);
 
-            DrawText(TextFormat("%i", player1Score), screenWidth / 4 - 20, 20, 80, WHITE);
-            DrawText(TextFormat("%i", player2Score), 3 * screenWidth / 4, 20, 80, WHITE);
+            DrawText(TextFormat("%i", player1Score), screenWidth / 4 - 20, 20, 50, WHITE);
+            DrawText(TextFormat("%i", player2Score), 3 * screenWidth / 4, 20, 50, WHITE);
+
+             // render header
+            const int headerY = 17;
+            const int fontSize = 50;
+            const char *title = "Pong";
+            const int titleWidth = MeasureText(title, fontSize);
+            DrawText("Pong", (screenWidth - titleWidth) / 2, headerY, fontSize, WHITE);
+
+            DrawLine(0, playStartHeight, screenWidth, playStartHeight, WHITE);
 
             // Start of game instructions
             if (active == false)
@@ -195,7 +204,7 @@ int main(void)
 
                 paused = true;
 
-                const int startFontSize = 50;
+                const int startFontSize = 30;
                 const char *startText = "Press ENTER to start game";
                 const char *keysText = "Player controls: W/S and UP/DOWN keys";
                 const int startTextWidth = MeasureText(startText, startFontSize);
